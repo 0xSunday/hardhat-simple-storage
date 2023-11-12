@@ -1,10 +1,11 @@
-const { ethers } = require("@nomicfoundation/hardhat-toolbox");
+const { ethers } = require("hardhat");
 
 async function main() {
-
-  const contractFactory = await ethers.getContractFactory("Greeter");
-  const greeter = await contractFactory.deploy("Hello, Hardhat!");
-
+  const contractFactory = await ethers.getContractFactory("SimpleStorage");
+  console.log("Deploying...");
+  const simpleStorage = await contractFactory.deploy();
+  await simpleStorage.deployed();
+  console.log("simple storage deployed to:", simpleStorage.address);
 }
 main()
   .then(() => process.exit(0))
