@@ -4,8 +4,8 @@ async function main() {
   const contractFactory = await ethers.getContractFactory("SimpleStorage");
   console.log("Deploying...");
   const simpleStorage = await contractFactory.deploy();
-  await simpleStorage.deployed();
-  console.log("simple storage deployed to:", simpleStorage.address);
+  
+  console.log(simpleStorage.target)
 }
 main()
   .then(() => process.exit(0))
